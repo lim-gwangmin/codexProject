@@ -1,7 +1,6 @@
 import React from 'react';
 import { firebaseApp } from './firebase'; 
 
-
 const firebaseMessaging = firebaseApp.messaging();
 firebaseMessaging
   .requestPermission()
@@ -18,28 +17,16 @@ firebaseMessaging
   firebaseMessaging.onMessage((payload) => {
    console.log(payload.notification.title);
    console.log(payload.notification.body);
+   console.log("Message received. ", payload);
+   const { title, ...options } = payload.notification;
+   //Show the notification :)
+   return navigator.serviceWorker.getRegistration('/firebase-cloud-messaging-push-scope').then(registration => {
+      registration.showNotification(
+         title,
+         options
+      )});
  });
 
-// firebase.initializeApp(config);
-
-// const messaging = firebase.messaging();
-
-// //사용자에게 허가를 받아 토큰을 가져옵니다.
-// messaging.requestPermission()
-// .then(function() {
-// 	return messaging.getToken(); 
-// })
-// .then(function(token) {
-// 	console.log(token);
-// })
-// .catch(function(err) {
-// 	console.log('fcm error : ', err);
-// })
-
-// messaging.onMessage(function(payload){
-// 	console.log(payload.notification.title);
-// 	console.log(payload.notification.body);
-// })
 
 function App(){
    return (
