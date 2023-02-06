@@ -1,8 +1,9 @@
 import React from 'react';
 import { firebaseApp } from './firebase'; 
-import { webPush } from './api/webPushMessage';
+import { webPush } from 'api/webPushMessage';
 import { useSelector, useDispatch } from 'react-redux';
-import { webPushToken } from './store/sliceReducer';
+import { webPushToken } from 'store/sliceReducer';
+import logo from 'assets/images/logo.png';
 
 const firebaseMessaging = firebaseApp.messaging();
 
@@ -77,7 +78,7 @@ function App(){
                <div className='container'>
                   <h1 className='logo'>
                      <a href='/'>
-                        <img src=''/>
+                        <img src={logo}/>
                      </a>
                   </h1>
                   <ul id='nav'>
@@ -93,7 +94,7 @@ function App(){
                   </ul>
                   <ul id='user'>
                      <li>
-                        <button class='btn_alert'>
+                        <button className='btn_alert'>
                            <img src=''/>
                         </button>
                      </li>
