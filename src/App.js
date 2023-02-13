@@ -4,6 +4,8 @@ import { webPush } from 'api/webPushMessage';
 import { useSelector, useDispatch } from 'react-redux';
 import { webPushToken } from 'store/sliceReducer';
 import logo from 'assets/images/logo.png';
+import alert from 'assets/icon/icon_alert.png';
+
 
 function App(){
    const dispatch = useDispatch();
@@ -34,34 +36,39 @@ function App(){
 
    return (
       <>
-         <h1>Hello World!</h1>
-         <input id='title'value={push.title} onChange={handleChange} placeholder='웹 푸시 타이틀'/>
-         <input id='comment 'value={push.comment} onChange={handleChange} placeholder='웹 푸시 내용'/>
-         <button onClick={() => webPush(push.title, push.comment, fireBaseToken)}>웹 푸시 발송!</button>
-
+         <div style={{display:'none'}}>
+            <input id='title'value={push.title} onChange={handleChange} placeholder='웹 푸시 타이틀'/>
+            <input id='comment 'value={push.comment} onChange={handleChange} placeholder='웹 푸시 내용'/>
+            <button onClick={() => webPush(push.title, push.comment, fireBaseToken)}>웹 푸시 발송!</button>
+         </div>
          <div id='wrap'>
             <header id='header'>
                <div className='container'>
-                  <h1 className='logo'>
-                     <a href='/'>
-                        <img src={logo}/>
-                     </a>
-                  </h1>
-                  <ul id='nav'>
-                     <li>
-                        <a className='active'>코딩</a>
-                     </li>
-                     <li>
-                        <a>점메추</a>
-                     </li>
-                     <li>
-                        <a>공지사항</a>
-                     </li>
-                  </ul>
+                  <div className='flex_wrapper'>
+                     <h1 className='logo'>
+                        <a href='/'>
+                           <img src={logo}/>
+                        </a>
+                     </h1>
+                     <ul id='nav'>
+                        <li>
+                           <a href='' className='active'>코딩</a>
+                        </li>
+                        <li>
+                           <a href='' >점메추</a>
+                        </li>
+                        <li>
+                           <a href='' >공지사항</a>
+                        </li>
+                     </ul>
+                  </div>
                   <ul id='user'>
                      <li>
                         <button className='btn_alert'>
-                           <img src=''/>
+                           <img src={alert}/>
+                           <span className='alert'>
+                              1
+                           </span>
                         </button>
                      </li>
                      <li>
