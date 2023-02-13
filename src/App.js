@@ -1,36 +1,24 @@
 import React from 'react';
-import { firebaseApp } from './firebase'; 
-import { webPush } from 'api/webPushMessage';
+import { firebaseApp } from './firebaseSDK';
+import { webPush } from './api/webPushMessage';
+// import { webPush } from 'api/webPushMessage';
 import { useSelector, useDispatch } from 'react-redux';
-import { webPushToken } from 'store/sliceReducer';
-import logo from 'assets/images/logo.png';
+// import { webPushToken } from 'store/sliceReducer';
+import { webPushToken } from './store/sliceReducer';
+// import logo from 'assets/images/logo.png';
 
 const firebaseMessaging = firebaseApp.messaging();
 
 firebaseMessaging.onMessage( payload  => {
    const { title, ...options } = payload.notification;
-   //Show the notification :)
+   console.log(payload.notification, '푸시 이벤트')
+   
    return navigator.serviceWorker.getRegistration('/firebase-cloud-messaging-push-scope').then(registration => {
       registration.showNotification(
          title,
          options
       )});
 });
-const fireBaseFunc = () => {
-
-   firebaseMessaging
-   .requestPermission()
-   .then(() => {
-      return firebaseMessaging.getToken(); // 등록 토큰 받기
-   })
-   .then(function (token) {
-      console.log(token); //토큰 출력
-   })
-   .catch(function (error) {
-      console.log("FCM Error : ", error);
-   });
-
-};
 
 function App(){
    const dispatch = useDispatch();
@@ -73,7 +61,7 @@ function App(){
          <input id='comment 'value={push.comment} onChange={handleChange} placeholder='웹 푸시 내용'/>
          <button onClick={() => webPush(push.title, push.comment, fireBaseToken)}>웹 푸시 발송!</button>
 
-         <div id='wrap'>
+         {/* <div id='wrap'>
             <header id='header'>
                <div className='container'>
                   <h1 className='logo'>
@@ -129,7 +117,7 @@ function App(){
                   </div>
                </div>
             </header>
-         </div>
+         </div> */}
       </>
    )
 }
