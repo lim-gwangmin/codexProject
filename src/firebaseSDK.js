@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-
+import webPusgIcon from 'assets/icon/icon_webPush.png';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -12,3 +12,30 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const firebaseMessaging = firebaseApp.messaging();
+
+const pushMessage = firebaseMessaging.onMessage( payload  => {
+   const { title, ...options } = payload.notification;
+   const option = {
+      body: options.body,
+      tag: options.tag,
+      icon: webPusgIcon,
+   }
+   return navigator.serviceWorker.getRegistration('/firebase-cloud-messaging-push-scope').then(registration => {
+      registration.showNotification(title, option)});
+});
+
+export const fireBaseFunc = () => {
+   return firebaseMessaging
+   .requestPermission()
+   .then(() => {
+      return firebaseMessaging.getToken(); // 등록 토큰 받기
+   })
+   .then(function (token) {
+      return token;
+   })
+   .catch(function (error) {
+      console.log("FCM Error : ", error);
+   });
+};

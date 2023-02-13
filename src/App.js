@@ -1,24 +1,9 @@
 import React from 'react';
-import { firebaseApp } from './firebaseSDK';
-import { webPush } from './api/webPushMessage';
-// import { webPush } from 'api/webPushMessage';
+import { fireBaseFunc } from 'firebaseSDK';
+import { webPush } from 'api/webPushMessage';
 import { useSelector, useDispatch } from 'react-redux';
-// import { webPushToken } from 'store/sliceReducer';
-import { webPushToken } from './store/sliceReducer';
-// import logo from 'assets/images/logo.png';
-
-const firebaseMessaging = firebaseApp.messaging();
-
-firebaseMessaging.onMessage( payload  => {
-   const { title, ...options } = payload.notification;
-   console.log(payload.notification, '푸시 이벤트')
-   
-   return navigator.serviceWorker.getRegistration('/firebase-cloud-messaging-push-scope').then(registration => {
-      registration.showNotification(
-         title,
-         options
-      )});
-});
+import { webPushToken } from 'store/sliceReducer';
+import logo from 'assets/images/logo.png';
 
 function App(){
    const dispatch = useDispatch();
@@ -26,18 +11,11 @@ function App(){
    const [ push, setPush ] = React.useState({
       title:'',
       comment:'',
-   })
-   const fireBaseFunc = async () => {
-      await firebaseMessaging
-      .requestPermission()
-      .then(() => {
-         return firebaseMessaging.getToken(); // 등록 토큰 받기
-      })
-      .then(function (token) {
-         dispatch(webPushToken(token))
-      })
-      .catch(function (error) {
-         console.log("FCM Error : ", error);
+   });
+
+   const getToken_FCM = async func => {
+      await func().then( token => {
+         dispatch(webPushToken(token));
       });
    };
 
@@ -51,7 +29,7 @@ function App(){
    };
 
    React.useEffect(() => {
-      fireBaseFunc();
+      getToken_FCM(fireBaseFunc);
    }, []);
 
    return (
@@ -61,7 +39,7 @@ function App(){
          <input id='comment 'value={push.comment} onChange={handleChange} placeholder='웹 푸시 내용'/>
          <button onClick={() => webPush(push.title, push.comment, fireBaseToken)}>웹 푸시 발송!</button>
 
-         {/* <div id='wrap'>
+         <div id='wrap'>
             <header id='header'>
                <div className='container'>
                   <h1 className='logo'>
@@ -117,7 +95,7 @@ function App(){
                   </div>
                </div>
             </header>
-         </div> */}
+         </div>
       </>
    )
 }

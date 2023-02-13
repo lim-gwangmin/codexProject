@@ -15,12 +15,12 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-   console.log('background push event', payload);
-   // Customize notification here
-   const notificationTitle = 'Background Message Title';
+   const { title, body } = payload.notification;
+   
+   const notificationTitle = title;
    const notificationOptions = {
-     body: 'Background Message body.',
-     icon: '/firebase-logo.png'
+     body,
+     icon: './favicon-192x192.png',
    };
  
    self.registration.showNotification(notificationTitle, notificationOptions);
