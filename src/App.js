@@ -3,9 +3,25 @@ import { fireBaseFunc } from 'firebaseSDK';
 import { webPush } from 'api/webPushMessage';
 import { useSelector, useDispatch } from 'react-redux';
 import { webPushToken } from 'store/sliceReducer';
+import { formatDate, formatDate_day } from 'utils/formatDate';
+import FullCalendar from '@fullcalendar/react' 
+import dayGridPlugin from '@fullcalendar/daygrid'
+import { HiOutlineArrowSmRight } from "react-icons/hi";
 import logo from 'assets/images/logo.png';
 import alert from 'assets/icon/icon_alert.png';
 
+
+const CALENDAR_HEIGHT = 600;
+
+const Btn = ({ arg }) => {
+   const { _def, _instance } = arg.event;
+   const { title } = _def;
+   const { start, end } = _instance.range;
+   
+   return <button onClick={() => {
+      console.log(title, formatDate(start), formatDate(end))
+   }}>{arg.event._def.title}</button>
+};
 
 function App(){
    const dispatch = useDispatch();
@@ -81,11 +97,60 @@ function App(){
                      </li>
                   </ul>
                </div>
-               <div id='main'>
+            </header>
+            <div id='main'>
                   <div className='container'>
                      <section className='section' id='section01'>
                         <article>
-
+                           <div className='calendar_wrapper'>
+                              <div className='colum_area'> 
+                                 <FullCalendar
+                                    locale={'ko'}
+                                    plugins={[ dayGridPlugin ]}
+                                    events={[
+                                       { title: '임광민', date: '2023-02-13', end: '2023-02-18' },
+                                       { title: 'event 2', date: '2023-02-20', end: '2023-02-25' }
+                                    ]}
+                                    eventContent={(arg) =>  <Btn arg={arg}/>}
+                                    height={`${CALENDAR_HEIGHT}px`}
+                                    // formatDay={(locale, date) => date.toLocaleString("en", {day: "numeric"})}
+                                 />
+                              </div>
+                           </div>
+                           <div className='notice_wrapper'> 
+                              <div className='colum_area'>
+                                 <div className='notice_header'>
+                                    <h2>공지사항</h2>
+                                    <a href='' className='btn_notice_table'>
+                                       <HiOutlineArrowSmRight className='HiOutlineArrowSmRight'/>
+                                    </a>
+                                 </div>
+                                 <ul className='notice_list'>
+                                    <li>
+                                       <span className='title type01'>
+                                          코당
+                                       </span>
+                                       <a href='' className='comment'>
+                                          <span>
+                                             공지사항 입니다.공지사항 입니다.공지사항 입니다.공지사항 입니다.
+                                          </span>
+                                       </a>
+                                       <span className='date'>22-01-24</span>
+                                    </li>
+                                    <li>
+                                       <span className='title type02'>
+                                          점메추
+                                       </span>
+                                       <a href='' className='comment'>
+                                          <span>
+                                             공지사항 입니다.공지사항 입니다.공지사항 입니다.공지사항 입니다.
+                                          </span>
+                                       </a>
+                                       <span className='date'>22-01-24</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
                         </article>
                         <article>
 
@@ -101,7 +166,6 @@ function App(){
                      </section>  
                   </div>
                </div>
-            </header>
          </div>
       </>
    )

@@ -8,5 +8,6 @@
 + Redux-Toolkit
 + React-Router
 + Styled-component
++ React-icons
 + Axios
 + FCM

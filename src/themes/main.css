@@ -1,0 +1,93 @@
+/* section 01 */
+#section01 > article {
+   display:table;
+   width:100%;
+}
+
+#section01 > article > div[class$='_wrapper'] {
+   display:table-cell;
+   vertical-align: top;
+}
+#section01 > article > [class$='_wrapper'] > .colum_area {
+   background-color:#fff;
+   padding: 2rem 3rem;
+   border-radius: 2rem;
+   box-shadow: 0px 0px 5px rgba(76, 87, 125, 0.1);
+}
+#section01 > article .calendar_wrapper {
+   width:65%;
+}
+#section01 > article > .notice_wrapper {
+   width:35%;
+   padding-left:3rem;
+}
+#section01 > article > .notice_wrapper > .colum_area {
+   height:calc(600px + 4rem);
+}
+#section01 .notice_header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 2rem;
+}
+#section01 .notice_header h2 {
+   font-size: 2rem;
+   font-weight:500;
+}
+#section01 .notice_header .HiOutlineArrowSmRight {
+   font-size: 3rem;
+   color: #999999;
+}
+#section01 .notice_list {
+   height: calc(600px - 5.5rem);
+   overflow-y: auto;
+}
+#section01 .notice_list > li {
+   padding: 1.5rem 0;
+   border-top: 1px dashed #E1E3EA;
+}
+#section01 .notice_list > li:last-child {
+   border-bottom: 1px dashed #E1E3EA;
+}
+#section01 .notice_list > li .title {
+   font-size: 1.5rem;
+   font-weight: 700;
+   margin-right: 1rem;
+}
+#section01 .notice_list > li .title.type01 {
+   color: #18AE6E;
+}
+#section01 .notice_list > li .title.type02 {
+   color: #FF88B4;
+}  
+#section01 .notice_list > li .comment > span {
+   font-size: 1.5rem;
+   display: inline-block;
+   vertical-align: middle;
+   color:#333;
+   width:70%;
+   padding-top:.1rem;
+   word-break: keep-all;
+   text-overflow: ellipsis;
+   overflow:hidden;
+   white-space: nowrap;
+}
+#section01 .notice_list > li .comment:hover > span {
+   text-decoration: underline;
+}
+#section01 .notice_list > li .date {
+   float:right;
+   font-size:1.5rem;
+   color: #7A7A7A;
+}
+/* media query */
+   /*  only desktop */
+@media (min-width:1024px) {
+   /* section01 */
+   #section01 .notice_header .HiOutlineArrowSmRight {
+      transition: all .3s;
+   }
+   #section01 .notice_header .btn_notice_table:hover .HiOutlineArrowSmRight {
+      transform: translateX(1rem);
+   }
+}

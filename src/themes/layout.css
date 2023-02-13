@@ -3,6 +3,7 @@
    position: relative;
    min-height: 100vh;
    background-color:#F6F8FC;
+   padding-top: 13rem;
 }
 .container {
    width:100%;
@@ -97,11 +98,10 @@
    background-color: #ECF2FF;
    color: #0B21EE;
 }
-/* footer */
 
 
-
-/*  only desktop */
+/* media query */
+   /*  only desktop */
 @media (min-width:1024px) {
    @keyframes shake{
       0%{transform: rotate(0deg);}
