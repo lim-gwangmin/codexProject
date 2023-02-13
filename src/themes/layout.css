@@ -126,7 +126,7 @@
    #user .btn_logOut:hover {
       text-decoration: underline;
    }
-   #user .btn_alert:hover {
+   #user .btn_alert:hover > img {
       animation-name: shake;
       transform-origin: 50% 0%;
       animation-duration: 2s;
