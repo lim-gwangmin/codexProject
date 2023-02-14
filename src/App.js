@@ -9,7 +9,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import { HiOutlineArrowSmRight } from "react-icons/hi";
 import logo from 'assets/images/logo.png';
 import alert from 'assets/icon/icon_alert.png';
-
+import pencil from 'assets/icon/icon_pencil.png';
 
 const CALENDAR_HEIGHT = 600;
 
@@ -99,73 +99,125 @@ function App(){
                </div>
             </header>
             <div id='main'>
-                  <div className='container'>
-                     <section className='section' id='section01'>
-                        <article>
-                           <div className='calendar_wrapper'>
-                              <div className='colum_area'> 
-                                 <FullCalendar
-                                    locale={'ko'}
-                                    plugins={[ dayGridPlugin ]}
-                                    events={[
-                                       { title: '임광민', date: '2023-02-13', end: '2023-02-18' },
-                                       { title: 'event 2', date: '2023-02-20', end: '2023-02-25' }
-                                    ]}
-                                    eventContent={(arg) =>  <Btn arg={arg}/>}
-                                    height={`${CALENDAR_HEIGHT}px`}
-                                    // formatDay={(locale, date) => date.toLocaleString("en", {day: "numeric"})}
-                                 />
-                              </div>
+               <div className='container'>
+                  <section className='section' id='section01'>
+                     <article className='calendar_wrapper'>
+                        <div className='colum_area'> 
+                           <FullCalendar
+                              locale={'ko'}
+                              plugins={[ dayGridPlugin ]}
+                              events={[
+                                 { title: '임광민', date: '2023-02-13', end: '2023-02-18' },
+                                 { title: 'event 2', date: '2023-02-20', end: '2023-02-25' }
+                              ]}
+                              eventContent={(arg) =>  <Btn arg={arg}/>}
+                              height={`${CALENDAR_HEIGHT}px`}
+                              // formatDay={(locale, date) => date.toLocaleString("en", {day: "numeric"})}
+                           />
+                        </div>
+                     </article>
+                     <article className='notice_wrapper'>
+                        <div className='colum_area'>
+                           <div className='notice_header'>
+                              <h2>공지사항</h2>
+                              <a href='' className='btn_notice_table'>
+                                 <HiOutlineArrowSmRight className='HiOutlineArrowSmRight'/>
+                              </a>
                            </div>
-                           <div className='notice_wrapper'> 
-                              <div className='colum_area'>
-                                 <div className='notice_header'>
-                                    <h2>공지사항</h2>
-                                    <a href='' className='btn_notice_table'>
-                                       <HiOutlineArrowSmRight className='HiOutlineArrowSmRight'/>
-                                    </a>
-                                 </div>
-                                 <ul className='notice_list'>
-                                    <li>
-                                       <span className='title type01'>
-                                          코당
-                                       </span>
-                                       <a href='' className='comment'>
-                                          <span>
-                                             공지사항 입니다.공지사항 입니다.공지사항 입니다.공지사항 입니다.
-                                          </span>
-                                       </a>
-                                       <span className='date'>22-01-24</span>
-                                    </li>
-                                    <li>
-                                       <span className='title type02'>
-                                          점메추
-                                       </span>
-                                       <a href='' className='comment'>
-                                          <span>
-                                             공지사항 입니다.공지사항 입니다.공지사항 입니다.공지사항 입니다.
-                                          </span>
-                                       </a>
-                                       <span className='date'>22-01-24</span>
-                                    </li>
-                                 </ul>
-                              </div>
+                           <ul className='notice_list'>
+                              <li>
+                                 <span className='title type01'>
+                                    코당
+                                 </span>
+                                 <a href='' className='comment'>
+                                    <span>
+                                       공지사항 입니다.공지사항 입니다.공지사항 입니다.공지사항 입니다.
+                                    </span>
+                                 </a>
+                                 <span className='date'>22-01-24</span>
+                              </li>
+                              <li>
+                                 <span className='title type02'>
+                                    점메추
+                                 </span>
+                                 <a href='' className='comment'>
+                                    <span>
+                                       공지사항 입니다.공지사항 입니다.공지사항 입니다.공지사항 입니다.
+                                    </span>
+                                 </a>
+                                 <span className='date'>22-01-24</span>
+                              </li>
+                           </ul>
+                        </div>
+                     </article>
+                  </section>  
+                  <section className='section' id='section02'>
+                     <article className='evrynSwork_wrapper'>
+                        <div className='colum_area'>
+                           <div className='evrynSwork_header'>
+                              <h2>모두의 일</h2>
+                              <button className='btn_evrynSwork_list'>
+                                 <img src={pencil}/>
+                              </button>
                            </div>
-                        </article>
-                        <article>
-
-                        </article>
-                     </section>  
-                     <section className='section' id='section02'>
-                        <article>
-
-                        </article>
-                        <article>
-
-                        </article>
-                     </section>  
-                  </div>
+                           <ul className='check_list'>
+                              <li>
+                                 개인 쓰레기통 스스로 비우기
+                                 <span>
+                                    (금요일 필수!)
+                                 </span>
+                              </li>
+                              <li>
+                                 정수기,커피머신,싱크대 주변에 튄 물 닦기
+                              </li>
+                              <li>
+                                 마지막 퇴근 직원은 모든 문,에어컨,전등,노래 등 단속하기
+                              </li>
+                           </ul>
+                        </div>
+                     </article>
+                     <article className='duty_wrapper'>
+                        <div className='colum_area'>
+                           <div className='duty_header'>
+                              <h2>당번의 일</h2>
+                              <button className='btn_duty_list'>
+                                 <img src={pencil}/>
+                              </button>
+                           </div>
+                           <ul className='check_list col2'>
+                              <li>
+                                 설거지하기, 싱크대 배수망 비우기
+                              </li>
+                              <li>
+                                 대표님,팀장님 쓰레기통 비우기
+                                 <span>
+                                    (금)
+                                 </span>
+                              </li>
+                              <li>
+                                 커피 머신, 정수기 물 받침대 설거지하기 
+                                 <span>
+                                    (수,금)
+                                 </span>
+                              </li>
+                              <li>
+                                 음료수 냉장고 우측 상단의 불 끄기
+                                 <span>
+                                    (금)
+                                 </span>
+                              </li>
+                              <li>
+                                 일반, 음식물 쓰레기, 분리수거 정리 및 분리배출
+                                 <span>
+                                    (금, 모두 다같이!)
+                                 </span>
+                              </li>
+                           </ul>
+                        </div>
+                     </article>
+                  </section>  
                </div>
+            </div>
          </div>
       </>
    )
