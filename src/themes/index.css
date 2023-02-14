@@ -1142,7 +1142,6 @@ input[type="checkbox"]:disabled ~ label::before {
 .fc-theme-standard td {
    background-color: #fff;
 }
-
 .fc .fc-daygrid-day-top {
    flex-direction: row;
 }
@@ -1151,7 +1150,6 @@ input[type="checkbox"]:disabled ~ label::before {
    padding: 1rem 1rem .5rem;
    color:#333;
 }
-
 .fc .fc-col-header-cell .fc-scrollgrid-sync-inner {
    padding: .8rem 0;
 }
@@ -1255,6 +1253,10 @@ input[type="checkbox"]:disabled ~ label::before {
 }
 .fc .fc-button .fc-icon {
    margin-left:-1px;
+}
+.fc .fc-daygrid-day.fc-day-today,
+.fc .fc-daygrid-day.fc-day-today ~ .fc-day {
+   background-color:#ECF2FF
 }
 /* ===========================================================================================
    pageination
