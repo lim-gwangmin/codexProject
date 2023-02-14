@@ -104,15 +104,19 @@ function App(){
                      <article className='calendar_wrapper'>
                         <div className='colum_area'> 
                            <FullCalendar
+                              buttonText={{today:'오늘'}}
                               locale={'ko'}
                               plugins={[ dayGridPlugin ]}
+                              weekends={false}
                               events={[
-                                 { title: '임광민', date: '2023-02-13', end: '2023-02-18' },
-                                 { title: 'event 2', date: '2023-02-20', end: '2023-02-25' }
+                                 { title: '임광민1', date: '2023-02-06', end: '2023-02-11' },
+                                 { title: '임광민2', date: '2023-02-13', end: '2023-02-18' },
+                                 { title: '임광민3', date: '2023-02-27', end: '2023-03-04' }
                               ]}
                               eventContent={(arg) =>  <Btn arg={arg}/>}
                               height={`${CALENDAR_HEIGHT}px`}
-                              // formatDay={(locale, date) => date.toLocaleString("en", {day: "numeric"})}
+                              eventColor='#F6F8FC'
+                              dayCellContent={({ date }) => formatDate_day(date)}
                            />
                         </div>
                      </article>

@@ -1127,12 +1127,134 @@ input[type="checkbox"]:disabled ~ label::before {
 /* ===========================================================================================
    full calendar
 =========================================================================================== */
+.fc-toolbar-title {
+   font-size: 20px;
+   font-weight:500;
+   color:#000;
+}
+.fc .fc-toolbar.fc-header-toolbar {
+   margin-bottom: 20px;
+}
 .fc-theme-standard td, 
 .fc-theme-standard th {
    border: 1px solid #E1E3EA;
 }
 .fc-theme-standard td {
    background-color: #fff;
+}
+
+.fc .fc-daygrid-day-top {
+   flex-direction: row;
+}
+.fc .fc-daygrid-day-number {
+   font-size:1.3rem;
+   padding: 1rem 1rem .5rem;
+   color:#333;
+}
+
+.fc .fc-col-header-cell .fc-scrollgrid-sync-inner {
+   padding: .8rem 0;
+}
+.fc .fc-col-header-cell-cushion {
+   font-size: 1.4rem;
+   color:#5A5A5A;
+   font-weight: 400;
+}
+.fc .fc-daygrid-day.fc-day-today {
+   background-color:#fff;
+}
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+   color:#fff;
+}
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number::before {
+   content:'';
+   position: absolute;
+   left:53%;
+   top:54%;
+   width: 24px;
+   height: 24px;
+   background-color:#0B21EE;
+   border-radius: 100%;
+   transform:translate(-50%, -50%);
+   z-index:-1;
+}
+.fc-col-header-cell.fc-day {
+   background-color: #F6F8FC;
+}
+.fc-event .fc-event-main {
+   padding: .2rem .4rem;
+   border-radius:6px;
+}
+.fc-event .fc-event-main > button {
+   font-size: 1.4rem;
+   width:100%;
+   display: block;
+   text-align: left;
+   font-weight: 500;
+   color:#333;
+}
+.fc-theme-standard td,
+.fc-theme-standard th {
+ border-color:#E1E3EA;
+}
+.fc .fc-button-group {
+   gap:60px;
+}
+.fc-toolbar-chunk {
+   position: relative;
+}
+.fc .fc-today-button {
+   content:'오늘';
+   position: absolute;
+   color:#5A5A5A;
+   font-size: 14px;
+   font-weight: 400;
+   left:42px;
+   z-index: 2;
+}
+.fc .fc-today-button,
+.fc .fc-prev-button, 
+.fc .fc-next-button {
+   height:24px;
+   border:1px solid #E1E3EA;
+   background-color:#fff;
+   border-radius:4px;
+   padding:0;
+}
+.fc .fc-today-button {
+   width:46px;
+}
+.fc .fc-prev-button, 
+.fc .fc-next-button {
+   width:24px;
+}
+.fc .fc-prev-button > span, 
+.fc .fc-next-button > span {
+   color:#999999 !important;
+   font-size:8px;
+} 
+.fc .fc-button-primary:not(:disabled).fc-button-active, 
+.fc .fc-button-primary:not(:disabled):active,
+.fc .fc-button-primary:hover,
+.fc .fc-button-primary:disabled {
+   background-color:#E1E3EA;
+   border-color:#E1E3EA;
+   color:#5A5A5A;
+}
+.fc .fc-button-primary:focus {
+   box-shadow: none;
+}
+.fc-direction-ltr .fc-button-group>.fc-button:not(:last-child),
+.fc-direction-ltr .fc-button-group>.fc-button:not(:first-child),
+.fc-direction-ltr .fc-button-group>.fc-button {
+   border-bottom-left-radius: 4px;
+   border-top-left-radius: 4px;
+   border-bottom-right-radius: 4px;
+   border-top-right-radius: 4px;
+   margin:0;
+}
+.fc .fc-button .fc-icon {
+   margin-left:-1px;
 }
 /* ===========================================================================================
    pageination
@@ -1184,7 +1306,14 @@ input[type="checkbox"]:disabled ~ label::before {
 =========================================================================================== */
 /* min width */
 @media (min-width:1025px) {
-
+   .fc-event .fc-event-main:hover {
+      transition: all .3s;
+      background-color:#ECF2FF;
+   }
+   .fc-event .fc-event-main:hover > button {
+      transition: all .3s; 
+      color: #0B21EE;
+   }
 }
 @media (min-width:767px) {
 
