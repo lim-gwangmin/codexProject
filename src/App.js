@@ -6,26 +6,6 @@ import { webPushToken } from 'store/sliceReducer';
 import { WrapperContainer, Header, Main, MainSection } from 'component/templetes';
 import { Section01 ,Section02 } from 'component/oraganisms';
 
-// 
-import pencil from 'assets/icon/icon_pencil.png';
-import FullCalendar from '@fullcalendar/react' 
-import dayGridPlugin from '@fullcalendar/daygrid'
-import { HiOutlineArrowSmRight } from "react-icons/hi";
-import { formatDate, formatDate_day } from 'utils/formatDate';
-
-const CALENDAR_HEIGHT = 600;
-
-const Btn = ({ arg }) => {
-   const { _def, _instance } = arg.event;
-   const { title } = _def;
-   const { start, end } = _instance.range;
-   
-   return <button onClick={() => {
-      console.log(title, formatDate(start), formatDate(end))
-   }}>{arg.event._def.title}</button>
-};
-//
-
 function App(){
    const dispatch = useDispatch();
    const fireBaseToken = useSelector( state =>  state.sliceReducer.fireBaseToken);
@@ -71,7 +51,6 @@ function App(){
                </MainSection>
             </Main>
          </WrapperContainer>
-
          {/* <div id='alert_modal' className='modal_background'>
             <div className='modal_content_box'>
                <div className='alert_modal_header'>
