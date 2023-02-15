@@ -1,11 +1,11 @@
 import WrapperContainer from "./WrapperContainer";
 import Header from "./Header";
-import Main from "./Main";
+import MainContainer from "./MainContainer";
 import MainSection from "./MainSection";
 
 export {
    WrapperContainer,
    Header,
-   Main,
+   MainContainer,
    MainSection,
 };

@@ -1,4 +1,4 @@
-function Main({ children }) {
+function MainContainer({ children }) {
    return (
       <main id='main'>
          <div className='container'>
@@ -8,4 +8,4 @@ function Main({ children }) {
    )
 };
 
-export default Main;
+export default MainContainer;
