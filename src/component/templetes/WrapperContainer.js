@@ -6,11 +6,22 @@ function WrapperContainer({ children }) {
       modal, 
       handleModalOpen,
       handleModalClose,
+      alertModal,
+      handleAlertModalToggle,
+      handleAlertModalClose,
    } = useModalController();
 
    return (
       <div id='wrap'>
-         <ModalProvider value={{ modal, handleModalOpen, handleModalClose}}>
+         <ModalProvider 
+            value={{ 
+               modal, 
+               handleModalOpen, 
+               handleModalClose,
+               alertModal,
+               handleAlertModalToggle,
+               handleAlertModalClose
+            }}>
             {children}
          </ModalProvider>
       </div>

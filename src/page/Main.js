@@ -4,7 +4,8 @@ import {
    Header, 
    MainContainer, 
    MainSection,
-   Modal
+   Modal,
+   ModalAlert
 } from 'component/templetes';
 
 function Main() {
@@ -20,10 +21,11 @@ function Main() {
                   <Section02/>
                </MainSection>
             </MainContainer>
+
+            <ModalAlert/>
+
             <Modal>
-               <Modal.AlertContent>
-                  asd
-               </Modal.AlertContent>
+               asdasdasd
             </Modal>
          </WrapperContainer>
 
