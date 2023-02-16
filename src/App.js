@@ -42,9 +42,8 @@ function App() {
             <button onClick={() => webPush(push.title, push.comment, fireBaseToken)}>웹 푸시 발송!</button>
          </div>
          <Routes>
-            <Route path='/' element={<Main/>}/>
             <Route path={ROUTE[0].path} element={<Main/>}>
-
+               
             </Route>
          </Routes>
       </>

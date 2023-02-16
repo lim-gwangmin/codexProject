@@ -4,7 +4,7 @@ export const CLASS_NAME = {
 
 export const ROUTE = [
    {
-      path: '/codang',
+      path: '/',
       title:'코당'
    },
    {
