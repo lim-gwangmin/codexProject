@@ -3,7 +3,9 @@ import { fireBaseFunc } from 'firebaseSDK';
 import { webPush } from 'api/webPushMessage';
 import { useSelector, useDispatch } from 'react-redux';
 import { webPushToken } from 'store/sliceReducer';
-import { Main } from 'page/index';
+import { Main } from 'page';
+import { Routes, Route } from 'react-router-dom';
+import { ROUTE } from 'constants/constants';
 
 function App() {
    const dispatch = useDispatch();
@@ -31,7 +33,7 @@ function App() {
    React.useEffect(() => {
       getToken_FCM(fireBaseFunc);
    }, []);
-
+   
    return (
       <>
          <div style={{display:'none'}}>
@@ -39,8 +41,17 @@ function App() {
             <input id='comment 'value={push.comment} onChange={handleChange} placeholder='웹 푸시 내용'/>
             <button onClick={() => webPush(push.title, push.comment, fireBaseToken)}>웹 푸시 발송!</button>
          </div>
-         
-         <Main/>
+         <Routes>
+            <Route path={ROUTE[0].path} element={<Main/>}>
+               
+            </Route>
+            <Route path={ROUTE[1].path} element={<Main/>}>
+               
+            </Route>
+            <Route path={ROUTE[2].path} element={<Main/>}>
+               
+            </Route>
+         </Routes>
       </>
    )
 }
