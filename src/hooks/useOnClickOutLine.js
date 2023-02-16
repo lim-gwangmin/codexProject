@@ -1,5 +1,9 @@
 import React from 'react';
-import { EVENT_TYPE } from 'constants/constants';
+
+const EVENT_TYPE = {
+   MOUSE_DOWN: 'mousedown',
+   THOUCH_START: 'touchstart',
+};
 
 function useOnClickOutLine(ref, handler) {
 

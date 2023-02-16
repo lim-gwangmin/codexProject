@@ -1,6 +1,6 @@
 import { logo, alert } from 'assets/imgModules/main/mainImgModule';
 import { useModalContext } from 'hooks/useModalContext';
-
+import { Nav } from 'component/molecules';
 const ALERT_MODAL = 'alert_modal';
 
 function Header() {
@@ -15,21 +15,13 @@ function Header() {
                      <img src={logo}/>
                   </a>
                </h1>
-               <ul id='nav'>
-                  <li>
-                     <a href='' className='active'>코딩</a>
-                  </li>
-                  <li>
-                     <a href='' >점메추</a>
-                  </li>
-                  <li>
-                     <a href='' >공지사항</a>
-                  </li>
-               </ul>
+               <Nav/>
             </div>
             <ul id='user'>
                <li>
-                  <button className='btn_alert' onClick={() => handleModalOpen(ALERT_MODAL)}>
+                  <button 
+                  className='btn_alert' 
+                  onClick={() => handleModalOpen(ALERT_MODAL)}>
                      <img src={alert}/>
                      <span className='alert'>
                         1

@@ -1,5 +1,4 @@
 import React from 'react';
-import useModalController from 'hooks/useModalController';
 import { useModalContext } from 'hooks/useModalContext';
 
 const ALERT_MODAL = 'alert_modal';
@@ -41,7 +40,7 @@ const ModalAlertContent = ({ children }) => {
 
 const Modal = ({ children }) => {
    const { modal, handleModalClose } = useModalContext();
-   
+
    return (
       <div 
          className={`modal_background ${modal ? 'active' : ''}`}

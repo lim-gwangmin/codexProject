@@ -14,8 +14,9 @@ function useModalContext() {
    const context = React.useContext(ModalContext);
 
    if(context === undefined) {
-      throw new Error('TodoContext는 TodoProvider안에서 사용하여야 합니다.')
+      throw new Error('useModalContext는 ModalProvider안에서 사용하여야 합니다.')
    }
+   
    return context;
 };
 
