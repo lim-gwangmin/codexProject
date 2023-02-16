@@ -1,0 +1,161 @@
+#main {
+   min-height: calc(100vh - 13rem);
+   padding-bottom: 13rem;
+   background:url('../assets/images/img_mainBg.png') bottom center / contain no-repeat
+}
+.notice_title {
+   font-size: 1.5rem;
+   font-weight: 700;
+   margin-right: .5rem;
+}
+.notice_title.type01 {
+   color: #18AE6E;
+}
+.notice_title.type02 {
+   color: #FF88B4;
+}  
+.notice_title.type03 {
+   color: #333;
+}  
+
+/* section 01 */
+.section {
+   display:table;
+   width:100%;
+}
+.section > [class$='_wrapper'] {
+   display:table-cell;
+   vertical-align: top;
+}
+.section > [class$='_wrapper'] > .colum_area {
+   background-color:#fff;
+   padding: 2rem 3rem;
+   border-radius: 2rem;
+   box-shadow: 0px 0px 5px rgba(76, 87, 125, 0.1);
+}
+#section01 > .calendar_wrapper {
+   width:65%;
+}
+#section01 > .notice_wrapper {
+   width:35%;
+   padding-left:3rem;
+}
+#section01 > .notice_wrapper > .colum_area {
+   height:calc(600px + 4rem);
+}
+.section .colum_area > [class$='_header'] {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 2rem;
+}
+#section01 .notice_header h2 {
+   font-size: 2rem;
+   font-weight:500;
+}
+#section01 .notice_header .HiOutlineArrowSmRight {
+   font-size: 3rem;
+   color: #999999;
+}
+#section01 .notice_list {
+   height: calc(600px - 5.5rem);
+   overflow-y: auto;
+}
+#section01 .notice_list > li {
+   padding: 1.5rem 0;
+   border-top: 1px dashed #E1E3EA;
+}
+#section01 .notice_list > li:last-child {
+   border-bottom: 1px dashed #E1E3EA;
+}
+
+#section01 .notice_list > li .comment > span {
+   font-size: 1.5rem;
+   display: inline-block;
+   vertical-align: middle;
+   color:#333;
+   width:70%;
+   padding-top:.1rem;
+   word-break: keep-all;
+   text-overflow: ellipsis;
+   overflow:hidden;
+   white-space: nowrap;
+}
+#section01 .notice_list > li .comment:hover > span {
+   text-decoration: underline;
+}
+#section01 .notice_list > li .date {
+   float:right;
+   font-size:1.5rem;
+   color: #7A7A7A;
+}
+/* section 02 */
+#section02 {
+   margin-top:3rem;
+}
+#section02 > [class$='_wrapper'] > .colum_area {
+   min-height: 18rem;
+   padding: 3rem;
+}
+#section02 .evrynSwork_wrapper {
+   width: 42rem;
+}
+#section02 .duty_wrapper {
+   padding-left:3rem;
+}
+#section02 .check_list > li {
+   position: relative;
+   padding-left:2.5rem;
+   background:url('../assets/icon/icon_check.png') left top .2rem / auto no-repeat;
+   font-size:1.5rem;
+   color:#333;
+   margin-bottom: 1.5rem;
+}
+#section02 .check_list > li > span {
+   padding-left: .3rem;
+   color: #FF0000;
+   font-weight: 500;
+}
+#section02 .check_list.col2 > li {
+   display: inline-block;
+   vertical-align:top;
+   width:50%;
+   padding-right:1rem;
+}
+
+
+
+/* media query */
+   /*  only desktop */
+@media (min-width:1024px) {
+   /* section01 */
+   #section01 .notice_header .HiOutlineArrowSmRight {
+      transition: all .3s;
+   }
+   #section01 .notice_header .btn_notice_table:hover .HiOutlineArrowSmRight {
+      transform: translateX(1rem);
+   }
+   /* section02 */
+   #section02 .colum_area > [class$='_header'] > button > img {
+      transition:all .3s;
+   } 
+   #section02 .colum_area > [class$='_header'] > button:hover > img {
+      transform: translateX(1rem);
+   }
+   #section02 .colum_area > [class$='_header'] > button {
+      position: relative;
+   }
+   #section02 .colum_area > [class$='_header'] > button::before {
+      content:'';
+      position:absolute;
+      width:0;
+      height:2px;
+      left:0;
+      bottom:0;
+      background-color:#FF0000;
+   }
+   #section02 .colum_area > [class$='_header'] > button:hover::before {
+      width:1.2rem;
+      transition: all .3s;
+   }
+}

@@ -1,49 +1,47 @@
 import React from 'react';
-import { firebaseApp } from './firebase'; 
+import { fireBaseFunc } from 'firebaseSDK';
+import { webPush } from 'api/webPushMessage';
+import { useSelector, useDispatch } from 'react-redux';
+import { webPushToken } from 'store/sliceReducer';
+import { Main } from 'page/index';
 
+function App() {
+   const dispatch = useDispatch();
+   const fireBaseToken = useSelector( state =>  state.sliceReducer.fireBaseToken);
+   const [ push, setPush ] = React.useState({
+      title:'',
+      comment:'',
+   });
 
-const firebaseMessaging = firebaseApp.messaging();
-firebaseMessaging
-  .requestPermission()
-  .then(() => {
-    return firebaseMessaging.getToken(); // 등록 토큰 받기
-  })
-  .then(function (token) {
-    console.log(token); //토큰 출력
-  })
-  .catch(function (error) {
-    console.log("FCM Error : ", error);
-  });
-  
-  firebaseMessaging.onMessage((payload) => {
-   console.log(payload.notification.title);
-   console.log(payload.notification.body);
- });
+   const getToken_FCM = async func => {
+      await func().then( token => {
+         dispatch(webPushToken(token));
+      });
+   };
 
-// firebase.initializeApp(config);
+   const handleChange = e => {
+      const targetID = e.target.id;
+      if(targetID === 'title' ) {
+         setPush({...push, title: e.target.value});
+      } else {
+         setPush({...push, comment: e.target.value});
+      }
+   };
 
-// const messaging = firebase.messaging();
+   React.useEffect(() => {
+      getToken_FCM(fireBaseFunc);
+   }, []);
 
-// //사용자에게 허가를 받아 토큰을 가져옵니다.
-// messaging.requestPermission()
-// .then(function() {
-// 	return messaging.getToken(); 
-// })
-// .then(function(token) {
-// 	console.log(token);
-// })
-// .catch(function(err) {
-// 	console.log('fcm error : ', err);
-// })
-
-// messaging.onMessage(function(payload){
-// 	console.log(payload.notification.title);
-// 	console.log(payload.notification.body);
-// })
-
-function App(){
    return (
-      <h1>Hello World!</h1>
+      <>
+         <div style={{display:'none'}}>
+            <input id='title'value={push.title} onChange={handleChange} placeholder='웹 푸시 타이틀'/>
+            <input id='comment 'value={push.comment} onChange={handleChange} placeholder='웹 푸시 내용'/>
+            <button onClick={() => webPush(push.title, push.comment, fireBaseToken)}>웹 푸시 발송!</button>
+         </div>
+         
+         <Main/>
+      </>
    )
 }
 
