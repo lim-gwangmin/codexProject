@@ -1,5 +1,6 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+
 import { formatDate, formatDate_day } from 'utils/formatDate';
 
 const CALENDAR_HEIGHT = 600;

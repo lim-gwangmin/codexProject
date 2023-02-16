@@ -6,15 +6,15 @@ const OVERFLOW = 'overflow';
 function useModalController(modalName = '') {
    const [ modal, setModal ] = React.useState(modalName);
 
-   const handleModalOpen = modalName => {
+   const handleModalOpen = React.useCallback( modalName => {
       setModal(modalName); 
       bodyElment.classList.add(OVERFLOW);
-   };
+   }, [modal]);
 
-   const handleModalClose = () => {
+   const handleModalClose = React.useCallback(() => {
       setModal('');
       bodyElment.classList.remove(OVERFLOW);
-   };
+   }, [modal]);
 
    return {
       modal,

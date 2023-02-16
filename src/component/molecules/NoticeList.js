@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { NoticeContent } from 'component/atoms';
 
 function NoticeList() {
@@ -22,6 +23,7 @@ function NoticeList() {
          date:'22-01-24'
       },
    ]);
+
    return (
       <ul className='notice_list'>
          {noticeList&&noticeList.map( list => (

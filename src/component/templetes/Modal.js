@@ -1,7 +1,10 @@
 import React from 'react';
+
 import { useModalContext } from 'hooks/useModalContext';
 
 const ALERT_MODAL = 'alert_modal';
+
+
 
 const ModalBody = ({ children }) => {
    return (
@@ -30,9 +33,8 @@ const ModalContent = ({ children }) => {
 const ModalAlertContent = ({ children }) => {
    return (
       <div 
-         className='modal_alert_content_box'
-         onClick={e => e.stopPropagation()}
-      >
+      className='modal_alert_content_box'
+      onClick={e => e.stopPropagation()}>
          { children }
       </div>
    )

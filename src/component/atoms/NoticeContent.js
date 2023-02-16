@@ -1,4 +1,3 @@
-
 const CodangComponent = () => <span className='notice_title type01'>코당</span>
 const MenuComponent = () => <span className='notice_title type02'>점메추</span>
 const NoticeComponent = () => <span className='notice_title type03'>공지사항</span>

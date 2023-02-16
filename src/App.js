@@ -45,6 +45,12 @@ function App() {
             <Route path={ROUTE[0].path} element={<Main/>}>
                
             </Route>
+            <Route path={ROUTE[1].path} element={<Main/>}>
+               
+            </Route>
+            <Route path={ROUTE[2].path} element={<Main/>}>
+               
+            </Route>
          </Routes>
       </>
    )
