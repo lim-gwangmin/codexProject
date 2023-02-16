@@ -7,6 +7,8 @@
    font-size: 1.5rem;
    font-weight: 700;
    margin-right: .5rem;
+   display:inline-block;
+   width: 5rem;
 }
 .notice_title.type01 {
    color: #18AE6E;
@@ -72,9 +74,10 @@
 #section01 .notice_list > li .comment > span {
    font-size: 1.5rem;
    display: inline-block;
-   vertical-align: middle;
+   vertical-align: top;
    color:#333;
-   width:70%;
+   width:60%;
+   max-width: 28rem;
    padding-top:.1rem;
    word-break: keep-all;
    text-overflow: ellipsis;

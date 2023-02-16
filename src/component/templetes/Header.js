@@ -1,6 +1,11 @@
 import { logo, alert } from 'assets/imgModules/main/mainImgModule';
+import { useModalContext } from 'hooks/useModalContext';
+
+const ALERT_MODAL = 'alert_modal';
 
 function Header() {
+   const { handleModalOpen } = useModalContext();
+
    return (
       <header id='header'>
          <div className='container'>
@@ -24,7 +29,7 @@ function Header() {
             </div>
             <ul id='user'>
                <li>
-                  <button className='btn_alert'>
+                  <button className='btn_alert' onClick={() => handleModalOpen(ALERT_MODAL)}>
                      <img src={alert}/>
                      <span className='alert'>
                         1
