@@ -1,9 +1,12 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-
 import { formatDate, formatDate_day } from 'utils/formatDate';
 
-const CALENDAR_HEIGHT = 600;
+import useWindowSize from 'hooks/useWindowSize';
+
+const RESPONSIVE_WINDOW_SIZE = 1024;
+const DESK_CALENDAR_HEIGHT = 600;
+const MOBILE_CALENDAR_HEIGHT = 450;
 
 const Btn = ({ arg }) => {
    const { _def, _instance } = arg.event;
@@ -21,6 +24,8 @@ const Btn = ({ arg }) => {
 };
 
 function Calendar() {
+   const windowResizeWidth = useWindowSize() > RESPONSIVE_WINDOW_SIZE ?  DESK_CALENDAR_HEIGHT : MOBILE_CALENDAR_HEIGHT;
+
    return (
       <FullCalendar
          buttonText={{today:'오늘'}}
@@ -33,7 +38,7 @@ function Calendar() {
             { title: '임광민3', date: '2023-02-27', end: '2023-03-04' }
          ]}
          eventContent={(arg) =>  <Btn arg={arg}/>}
-         height={`${CALENDAR_HEIGHT}px`}
+         height={`${windowResizeWidth}px`}
          eventColor='#F6F8FC'
          dayCellContent={({ date }) => formatDate_day(date)}
       />

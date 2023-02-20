@@ -1360,7 +1360,9 @@ input[type="checkbox"]:disabled ~ label::before {
       border-color: #0B21EE;
       background-color:#0B21EE;
       color:#fff;
-      font-weight:700;
+   }
+   #alert_modal #alert_modal_header nav > button:hover {
+      text-decoration: underline;
    }
 }
 @media (min-width:767px) {

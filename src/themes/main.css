@@ -76,7 +76,7 @@
    display: inline-block;
    vertical-align: top;
    color:#333;
-   width:60%;
+   width:calc(70% - 5rem);
    max-width: 28rem;
    padding-top:.1rem;
    word-break: keep-all;
@@ -159,5 +159,35 @@
    #section02 .colum_area > [class$='_header'] > button:hover::before {
       width:1.2rem;
       transition: all .3s;
+   }
+}
+
+@media (max-width:1024px)  {
+   /* section 01 */
+   .section,
+   .section > [class$='_wrapper'] {
+      display:block;
+   }
+   #section01 > .calendar_wrapper,
+   #section01 > .notice_wrapper,
+   #section02 .evrynSwork_wrapper,
+   #section02 .duty_wrapper {
+      width:100%;
+      padding:0;
+   }
+   #section01 > .notice_wrapper,
+   #section02 .duty_wrapper {
+      margin-top:2rem;
+   }
+   #section01 > .notice_wrapper > .colum_area {
+      height: auto;
+      max-height: 40rem;
+   }
+   #section01 .notice_list {
+      height: auto;
+      max-height: 31rem;
+   }
+   #section02 {
+      margin-top: 2rem;
    }
 }
